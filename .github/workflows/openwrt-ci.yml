@@ -5,14 +5,19 @@
 #
 # Copyright (C) 2020 KFERMercer
 #
-name: OpenWrt-CI
+name: X86
 
 on:
-  schedule:
-    - cron: 0 20 * * *
-  push
-    branches:
-      - master
+  repository_dispatch:
+  workflow_dispatch:
+
+env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: .config
+  TZ: Asia/Shanghai
+
       
 jobs:
 
